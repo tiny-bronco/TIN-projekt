@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="CSS\CSS_01.css">
+    <link rel="stylesheet" href="CSS\CSS_grid.css">
+</head>
+
+<body>
+    <div class="grid-container2">
+
+        <div class="header">
+            <header>
+                <img src="Images/yoshitaka1_h2.jpg" alt="logo">
+                <a href="mainPage.html">
+                    <h1 id="startHeader">ART Heaven</h1>
+                </a>
+                <img src="Images/yoshitaka1_h3.jpg" alt="logo">
+            </header>
+        </div>
+
+        <div class="nav-hor" style="background-color: rgb(57, 58, 58);">
+
+            <h2 style="text-align: center">Log in</h2>
+        </div>
+        <div class="main">
+
+            <center>
+                <div style="width: 600px; padding: 5px;">
+
+                    <form action="mainPage2.html" style="background-color: rgb(62, 63, 63)">
+                        <br>
+                        <input type="email" placeholder="E-mail or login..">
+                        <br>
+                        <input type="password" placeholder="Password..">
+                        <br>
+                        <input type="submit">
+                        <br>
+                        <input type="checkbox" checked value="sdfg" title="dfgh"> Remember me
+                        <br>
+                        <a href="https://www.google.com/" tagert="_blank"> Need help?</a>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </center>
+
+        </div>
+        <%- include('./../fragments/footer.ejs') %>

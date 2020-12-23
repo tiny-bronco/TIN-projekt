@@ -1,0 +1,52 @@
+<%- include('./../../fragments/header2.ejs') %>
+    <%- include('./../../fragments/nav-ver.ejs') %>
+        <div class="main">
+            <main>
+                <a href="/add"><button>Add new Artwork</button></a>
+
+                <table class="data" width="auto">
+                    <tr>
+                        <td colspan="9">
+                            <h4> Artworks</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Tags</th>
+                        <th>Thumbnail</th>
+                        <th>User</th>
+                        <th>Upload date</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+                    <tr>
+                        <td>Mona Lisa</td>
+                        <td>The painting's novel qualities include the subject's enigmatic expression, the
+                            monumentality of the composition, the subtle modelling of forms,
+                            and the atmospheric illusionism.</td>
+                        <td>portrait, renaissance</td>
+                        <td align="center"><img
+                                src="Images/300px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg"
+                                width="50px"></td>
+                        <td>trueartist</td>
+                        <td>21.11.2020</td>
+                        <td><a href="admin-artworkDetails.html">details</a></td>
+                        <td><a>edit<a></td>
+                        <td><a>remove</a></td>
+                    </tr>
+                    <tr>
+                        <td>Mononoke Hime</td>
+                        <td>Miyazaki Hayao film promotion material</td>
+                        <td>anime art</td>
+                        <td align="center"><img src="Images/san and kodama.jpg" width="50px"></td>
+                        <td>trueartist</td>
+                        <td>21.11.2020</td>
+                        <td><a>details</a></td>
+                        <td><a>edit<a></td>
+                        <td><a>remove</a></td>
+                    </tr>
+
+                </table>
+            </main>
+        </div>
+        <%- include('./../../fragments/footer.ejs') %>

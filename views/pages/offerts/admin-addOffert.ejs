@@ -1,0 +1,51 @@
+<%- include('./../fragments/header2.ejs') %>
+    <%- include('./../fragments/nav-ver.ejs') %>
+
+        <div class="main">
+            <main>
+                <form action="adminPanel-offerts.html" style="padding: 5px;">
+                    <table class="data" width="auto">
+                        <tr>
+                            <td colspan="2">
+                                <h4>Add Offert</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td><input type="text" id="aTitle" required></td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td><textarea id="aDescription"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td><input type="number" required width="120px"> <span> $</span></td>
+                        </tr>
+                        <tr>
+                            <td>Owner</td>
+                            <td>
+                                <select name="tags" id="tags">
+                                    <option value="volvo">trueartist</option>
+                                    <option value="saab">paprotka333</option>
+                                    <option value="mercedes">alfonsomucha</option>
+                                    <option value="audi">admin</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Artwork</td>
+                            <td>
+                                <select name="tags" id="tags">
+                                    <option value="volvo">Mona Lisa</option>
+                                    <option value="saab">Mononoke Hime</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Add offert">
+                </form>
+                <a href="adminPanel-offerts.html"><button style="margin: 7px">Cancel</button></a>
+            </main>
+        </div>
+        <%- include('./../fragments/footer.ejs') %>

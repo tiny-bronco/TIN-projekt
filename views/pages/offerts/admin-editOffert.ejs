@@ -1,0 +1,66 @@
+<%- include('./../fragments/header2.ejs') %>
+    <%- include('./../fragments/nav-ver.ejs') %>
+        <div class="main">
+            <main>
+                <table class="data" cellpadding="5">
+                    <tr>
+                        <td colspan="2">
+                            <h4> Edit Offert</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" value="Mona Lisa like portrait"></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><textarea>I offer for traditional portrait. 100x80 size</textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td><input type="number" width="120px" value="10"> <span> $</span></td>
+                    </tr>
+                    <tr>
+                        <td>Owner</td>
+                        <td><select name="tags" id="tags">
+                                <option value="volvo">trueartist</option>
+                                <option value="saab">paprotka333</option>
+                                <option value="mercedes">alfonsomucha</option>
+                                <option value="audi">admin</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Created date</td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Customer</td>
+                        <td><select name="tags" id="tags">
+                                <option value="volvo">trueartist</option>
+                                <option value="saab">paprotka333</option>
+                                <option value="mercedes">alfonsomucha</option>
+                                <option value="audi">admin</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Purchase date</td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Attached artworks</td>
+                        <td>
+                            <select name="tags" id="tags">
+                                <option value="volvo">Mona Lisa</option>
+                                <option value="saab">Mononoke Hime</option>
+                            </select>
+                        </td>
+                    </tr>
+
+
+                </table>
+
+                <a href="admin-offertDetails.html"><button style="margin-left: 10px">Confirm</button></a>
+                <a href="admin-offertDetails.html"><button style="margin-left: 10px">Cancel</button></a>
+            </main>
+        </div>
+        <%- include('./../fragments/footer.ejs') %>

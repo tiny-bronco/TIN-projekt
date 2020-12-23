@@ -1,0 +1,30 @@
+<%- include('./../fragments/header.ejs') %>
+    <%- include('./../fragments/nav-hor.ejs') %>
+        <div class="main">
+
+            <center>
+                <div style="width: 600px; padding: 5px;">
+
+                    <form action="mainPage2.html" style="background-color: rgb(62, 63, 63)">
+                        <br>
+                        Login: <input type="text" placeholder="Login.." required>*
+                        <br>
+                        E-mail: <input type="email" placeholder="E-mail.." required>*
+                        <br>
+                        Password: <input type="password" placeholder="Password.." required>*
+                        <br>
+                        Profession: <select>
+                            <option>2D Artist</option>
+                            <option>3D Artist</option>
+                            <option>Animator</option>
+                            <option>Hobbyst</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input type="submit">
+                    </form>
+                </div>
+            </center>
+
+        </div>
+        <%- include('./../fragments/footer.ejs') %>

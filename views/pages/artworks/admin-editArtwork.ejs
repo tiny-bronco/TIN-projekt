@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTHeaven - Submit Art</title>
+    <link rel="stylesheet" href="CSS\CSS_01.css">
+    <link rel="stylesheet" href="CSS\CSS_grid.css">
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">
+            <header>
+                <a href="mainPage.html">
+                    <h1 id="startHeader">ART Heaven</h1>
+                </a>
+                <img src="Images/yoshitaka1_h3.jpg" alt="logo">
+            </header>
+        </div>
+
+        <div class="nav">
+            <nav>
+                <h2 class="nav-header">Admin panel</h2>
+                <ul class="vertical">
+                    <li><a href="adminPanel.html"> Users </a></li>
+                    <li class="active"><a class="active" href="adminPanel-artworks.html">Artworks</a></li>
+                    <li><a href="adminPanel-offerts.html"> Offerts </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main">
+            <main>
+                <table class="data" width="auto">
+                    <tr>
+                        <td colspan="2">
+                            <h4>Edit Artwork</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td><input type="text" value="Mona Lisa"></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td><textarea id="aDescription">The painting's novel qualities include the subject's enigmatic expression, the
+                                monumentality of the composition, the subtle modelling of forms,
+                                and the atmospheric illusionism.</textarea></td>
+
+                    </tr>
+                    <tr>
+                        <td>Tags</td>
+                        <td>
+                            <select name="tags" id="tags" multiple="true">
+                                <option value="volvo">Fan Art</option>
+                                <option value="saab">Portrait</option>
+                                <option value="mercedes">Traditional Art</option>
+                                <option value="audi">Illustration</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>User</td>
+                        <td width="200px">
+                            <select name="tags" id="tags">
+                                <option value="volvo">trueartist</option>
+                                <option value="saab">paprotka333</option>
+                                <option value="mercedes">alfonsomucha</option>
+                                <option value="audi">admin</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Artwork</td>
+                        <td><input type="file"></td>
+                    </tr>
+
+                </table>
+                <a href="adminPanel-artworks.html"><button>Confirm</button></a>
+                <a href="adminPanel-artworks.html"><button>Cancel</button></a>
+            </main>
+        </div>
+        <div class="footer">
+            <footer>
+                <p class="footer"> Martyna, Lipińska, s13186 </p>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

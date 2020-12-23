@@ -1,0 +1,14 @@
+input:required {
+    outline: 1px solid red;
+}
+
+.errors-text
+{
+    font-size: 0.85em;
+    line-height: 2.25rem;
+}
+
+.form input.error-input,
+.form select.error-input{
+    border: 3px solid #e74c3c;
+}

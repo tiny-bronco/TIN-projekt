@@ -1,0 +1,47 @@
+<%- include('./../../fragments/header2.ejs') %>
+    <%- include('./../../fragments/nav-ver.ejs') %>
+
+        <div class="main">
+            <main>
+                <form class="form" novalidate onsubmit="return validateForm();">
+                    <table class="data">
+                        <tr>
+                            <td colspan="2">
+                                <h4>Add User</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td><input type="text" id="username"></td>
+                            <td><span id="errorUsername" class="errors-text"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>
+                                <input type="password" id="password" required>
+                            </td>
+                            <td><span id="errorPassword" class="errors-text">
+                            </td>
+                            </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>E-mail</td>
+                            <td><input type="email" id="email" required></td>
+                            <span id="errorEmail" class="errors-text">
+
+                        </tr>
+                        <tr>
+                            <td>Avatar</td>
+                            <td><input type="file" id="avatar"></td>
+                            <span id="errorAvatar" class="errors-text">
+
+                        </tr>
+                    </table>
+                    <p id="errorsSummary" class="errors-text"></p>
+                    <input type="submit" value="Add User">
+                </form>
+                <a href="/user"><button>Cancel</button></a>
+            </main>
+        </div>
+        <%- include('./../../fragments/footer.ejs') %>

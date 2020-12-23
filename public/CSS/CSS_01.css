@@ -1,0 +1,228 @@
+body {
+    background-color: dimgrey;
+    color: aliceblue;
+}
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: Candara;
+}
+
+h1, h2 {
+    text-align: left;
+    padding: 1%;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+}
+
+#startHeader {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 300%;
+}
+
+p {
+    color: azure;
+    font-size: 20px;
+    margin: 3px;
+    text-indent: 5px;
+}
+
+p.border {
+    border-style: solid;
+    border-color: azure;
+    border-width: 1px;
+    border-radius: 1px;
+}
+
+ul, ol {
+    color: azure;
+    background-color: rgb(133, 128, 122);
+}
+
+a {
+    color: rgb(235, 158, 59);
+    text-decoration: none;
+}
+a:hover
+{
+    color: black;
+}
+input {
+    padding: 2px 5px;
+    border: 1px solid rgb(138, 139, 138);
+    border-radius: 3px;
+    margin: 4px 1px;
+    display: inline-block;
+    width: 150px;
+}
+textarea
+{
+    width: 150px;
+}
+select
+{
+    width: 150px;
+}
+
+label {
+    text-align: left;
+    display: inline-block;
+}
+
+img.left {
+    float: left;
+    content: "";
+    margin: 0 15px 0 0;
+}
+
+section:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+div {
+    background: #ccc;
+    padding: 8px;
+   
+}
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+ input.tags
+ {
+     font-size: 16px;
+     background-color: transparent;
+     max-width: 100%;
+     border: none;
+     box-sizing: border-box;
+     margin-top: 5px;
+ } 
+
+ .container {
+     width: 80%;
+     margin: 40px;
+ }
+ .tag-container {
+     border: 2x solid rgb(119, 119, 119);
+     padding: 10px;
+     border-radius: 3px;
+
+}
+.tag-container .tag{
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    border-radius: 1px;
+}
+.nav-header {
+    background-color: rgb(57, 58, 58);
+    color: rgb(221, 220, 217);
+    margin: 0%;
+    padding: 7px;
+}
+ul.horizontal 
+{
+    list-style: none;
+}
+ul.horizontal li
+{
+    float: right;
+}
+ul.horizontal a {
+    display: block;
+    padding: 7px 7px;
+}
+ul.vertical {
+    list-style-type: none;
+    background-color: rgb(197, 185, 182);
+    margin: 0;
+    padding-left: 7px;
+}
+ ul.vertical li {
+   display: block;
+   background-color: rgb(39, 39, 39);
+}
+ul.vertical li.active
+{
+    background-color: rgb(235, 158, 59);
+    color: black;
+}
+ul.vertical a.active
+{
+    color: white;
+}
+ul.vertical a 
+{
+    display: block;
+    color: rgb(211, 211, 211);
+    padding: 14px;
+
+}
+
+ul.vertical li:hover:not(.active) {
+    background-color: rgb(146, 99, 37);
+}
+button {
+    background-color: gray;
+    padding: 6px;
+    width: 110px;;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: none;
+
+}
+button:hover {
+    background-color:rgb(235, 158, 59);
+    color: black;
+}
+.active-link {
+    background-color: coral;
+    color: black;
+}
+/*TABLE*/
+table {
+    color: rgb(43, 43, 43);
+    border: 1px lightgray solid;
+    border-collapse: collapse;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+th, td 
+{
+    border: 1px lightgray solid;
+    padding: 6px;
+    padding-left: 10px;
+}
+th { background-color: rgb(190, 188, 181); color: rgb(36, 35, 35)}
+tr:hover { background-color: cornsilk;}
+td 
+{ 
+    background-color: rgb(241, 241, 241);
+}
+table.data td
+{
+    border-collapse: separate;
+}
