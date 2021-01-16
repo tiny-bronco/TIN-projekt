@@ -1,0 +1,112 @@
+<%- include('./../../fragments/header2.ejs') %>
+    <%- include('./../../fragments/nav-ver.ejs') %>
+
+        <div class="main">
+            <main>
+                <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit=" return
+                    validateForm();">
+                    <table class="data" width="auto">
+                        <tr>
+                            <td colspan="2">
+                                <h4>
+                                    <%=title%>
+                                </h4>
+                            </td>
+                        </tr>
+                        <input type="hidden" name="_id" value="<%= offert._id %>">
+                        <tr>
+                            <td>Title</td>
+                            <td><input type="text" name="title" value="<%= offert.title %>" <%=(formMode=='createNew' )
+                                    ? 'required' : '' %>
+                                <%= (formMode=='details' ) ? 'disabled' : '' %>/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td><textarea name="description" <%=(formMode=='details' ) ? 'disabled' : ''
+                                    %>/><%= offert.description %></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td><input type="number" name="price" value="<%= offert.price %>" <%=(formMode=='createNew'
+                                    ) ? 'required' : '' %>
+                                <%= (formMode=='details' ) ? 'disabled' : '' %>/>
+                                    <span> $</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Owner</td>
+                            <td>
+                                <select name="owner_id" id="tags" value="<%= offert.owner_id %>" <%=(formMode=='details'
+                                    ) ? 'disabled' : '' %>/>
+                                    <% for (let user of users) { %>
+                                        <option value="<%=user._id%>" <%=(user._id==offert.owner_id ) ? 'selected' : ''
+                                            %>/>
+                                            <%=user.username%>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <% if (formMode=='details' ) { %>
+
+                                <td>Create date</td>
+                                <td><input type="date" name="createdAt" value="<%= temp %>" <%=(formMode=='details' )
+                                        ? 'disabled' : '' %>/>
+                                </td>
+                                <%} %>
+
+                        </tr>
+                        <tr>
+                            <% if (formMode!='createNew' ) { %>
+                                <td>Customer</td>
+                                <td>
+                                    <select name="customer_id" id="tags" <%=(formMode=='details' ) ? 'disabled' : ''
+                                        %>/>
+                                        <% for (let user of users) { %>
+
+                                            <option value="<%=user._id%>" <%=(user._id==offert.customer_id )
+                                                ? 'selected' : '' %>/>
+                                                <%=user.username%>
+                                            </option>
+                                            <% } %>
+                                    </select>
+                                </td>
+                                <%} %>
+                        </tr>
+                        <tr>
+                            <% if (formMode!='createNew' ) { %>
+                                <td>Purchase date</td>
+                                <td><input type="date" name="purcharseDate" width="120px" value="<%= tempp %>"
+                                        <%=(formMode=='details' ) ? 'disabled' : '' %>/>
+                                </td>
+                                <%} %>
+
+                        </tr>
+                        <tr>
+                            <td>Artwork</td>
+                            <td>
+                                <select name="artwork_id" id="tags" value="<%=offert.artwork_id %>"
+                                    <%=(formMode=='details' ) ? 'disabled' : '' %>/>
+                                    <% for (let artwork of artworks) { %>
+                                        <option value="<%=artwork._id%>" <%=(artwork._id==offert.artwork_id )
+                                            ? 'selected' : '' %>>
+                                            <%=artwork.title%>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <% if (formMode!='details' ) { %>
+                        <input type="submit" value="<%=title%>">
+                        <%} %>
+
+                </form>
+                <span><a href="/offert"><button>Cancel</button></a></span>
+
+
+            </main>
+        </div>
+        <%- include('./../../fragments/footer.ejs') %>

@@ -10,22 +10,18 @@ const Offert = sequelize.define('Offert', {
     },
     title: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
     },
     description: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
     },
     price: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
     },
     owner_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
-    },
-    createdDate: {
-        type: Sequelize.DATE,
         allowNull: false,
     },
     customer_id: {

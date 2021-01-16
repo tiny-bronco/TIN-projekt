@@ -1,0 +1,56 @@
+<%- include('./../../fragments/header2.ejs') %>
+    <%- include('./../../fragments/nav-ver.ejs') %>
+
+
+        <div class="main">
+            <main>
+                <form class="form" method="" action="" novalidate onsubmit="return
+                    validateForm()">
+                    <table class="data">
+                        <%=formAction%>
+                            <tr>
+                                <td colspan="6">
+                                    <h4>
+                                        <%=title%>
+                                    </h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <input type="hidden" name="_id" value="<%= user._id %>">
+                                <td>Username</td>
+                                <td>
+                                    <input type="text" name="username" id="username" placeholder="2-60 znaków"
+                                        value="<%= user.username %>" <%=(formMode=='showDetails' ) ? 'disabled' : ''
+                                        %>/>
+                                </td>
+                                <td><span id="errorUsername" class="errors-text"></span></td>
+
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+
+                                <td>
+                                    <input type="password" name="password" id="password" value="<%= user.password %>"
+                                        <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+
+                                </td>
+                                <td>
+                                    <span id="errorPassword" class="errors-text"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>E-mail</td>
+                                <td>
+                                    <input type="email" name="email" id="email" placeholder="np. nazwa@domena.pl"
+                                        value="<%= user.email %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %> />
+                                </td>
+                                <span id="errorEmail" class="errors-text"></span>
+                            </tr>
+                    </table>
+                    <p id="errorsSummary" class="errors-text"></p>
+                    <input type="submit" value="<%=title%>">
+                </form>
+                <span><a href="/user"><button>Cancel</button></a></span>
+            </main>
+        </div>
+        <%- include('./../../fragments/footer.ejs') %>

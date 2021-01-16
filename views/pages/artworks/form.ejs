@@ -1,0 +1,165 @@
+<%- include('./../../fragments/header2.ejs') %>
+    <%- include('./../../fragments/nav-ver.ejs') %>
+        <div class="main">
+            <main>
+                <form class="form" action="<%=formAction%>" method="post" novalidate onsubmit=" return
+                    validateForm();">
+                    <table class="data" width="auto">
+                        <tr>
+                            <td colspan="2">
+                                <h4>
+                                    <%=title%>
+                                </h4>
+                            </td>
+                        </tr>
+                        <input type="hidden" name="_id" value="<%= artwork._id %>">
+                        <tr>
+                            <td>Title</td>
+                            <% if (formMode=='details' ) { %>
+                                <td>
+                                    <%=artwork.title %>
+                                </td>
+                                <% } else {%>
+                                    <td><input type="text" name="title" value="<%= artwork.title %>"
+                                            <%=(formMode=='createNew' ) ? 'required' : '' %>/></td>
+                                    <% } %>
+
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <% if (formMode=='details' ) { %>
+                                <td>
+                                    <%=artwork.description %>
+                                </td>
+                                <% } else {%>
+                                    <td><textarea name="description"><%= artwork.description %></textarea></td>
+                                    <% } %>
+
+                        </tr>
+                        <tr>
+                            <td>Tags</td>
+                            <td>
+                                <% if (formMode=='details' ) { %>
+
+                                    <% for (let tag of tags) { %>
+
+                                        <%=tag.name%>;
+
+                                            <% } %>
+
+                                                <% } else {%>
+                                                    <select name="tag_id" id="tags" multiple <%=(formMode=='details' )
+                                                        ? 'disabled' : '' %>/>
+                                                        <% for (let tag of tags) { %>
+                                                            <option value="<%=tag._id%>" <%=(artwork.user_id )
+                                                                ? 'selected' : '' %>/>
+                                                                <%=tag.name%>
+                                                            </option>
+                                                            <% } %>
+                                                    </select>
+                                                    <% } %>
+                                                        <!-- jak zrobic tagi -->
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User</td>
+                            <td>
+                                <% if (formMode=='details' ) { for (let user of users) { if (artwork.user_id==user._id)
+                                    { %>
+
+                                    <%=user.username%>
+
+                                        <% }} } else {%>
+                                            <select name="user_id" id="tags" value="<%= artwork.user_id %>"
+                                                <%=(formMode=='details' ) ? 'disabled' : '' %>/>
+                                                <% for (let user of users) { %>
+                                                    <option value="<%=user._id%>" <%=(artwork.user_id ) ? 'selected'
+                                                        : '' %>/>
+                                                        <%=user.username%>
+                                                    </option>
+                                                    <% } %>
+                                            </select>
+                                            <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Art (path)</td>
+                            <!-- jak zrobic plik -->
+                            <% if (formMode=='details' ) { %>
+                                <td>
+                                    <%= artwork.file %>
+                                </td>
+                                <% } else {%>
+                                    <td><input type="text" name="file" value="<%= artwork.file %>" <%=(formMode=='edit'
+                                            ) ? '' : 'required' %>/></td>
+                                    <% } %>
+
+                        </tr>
+                    </table>
+                    <% if (formMode!='details' ) { %>
+                        <input type="submit" value="<%=title%>">
+                        <%} %>
+                </form>
+                <% if (formMode=='details' ) { %>
+                    <a href="/artwork/edit/<%=artwork._id %>"><button>Edit</button></a>
+                    <%} %>
+
+                        <a href="/artwork"><button>Cancel</button></a>
+
+                        <% if (formMode=='details' ) { %>
+
+                            <table class="data">
+                                <tr>
+                                    <td colspan="10">
+                                        <h4> Offerts </h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Owner</th>
+                                    <th>Customer</th>
+                                    <th colspan="3"> Actions</th>
+                                </tr>
+                                <% for (let offert of offerts) { %>
+                                    <tr>
+                                        <td>
+                                            <%= offert.title %>
+                                        </td>
+                                        <td>
+                                            <%= offert.description %>
+                                        </td>
+                                        <td>
+                                            <%= offert.price %>
+                                        </td>
+                                        <td>
+                                            <% for (let user of users) { if(user._id==offert.owner_id) { %>
+
+                                                <%= user.username %>
+
+                                                    <% }} %>
+                                        </td>
+                                        <td>
+                                            <% for (let user of users) { if(user._id==offert.customer_id) { %>
+
+                                                <%= user.username %>
+
+                                                    <% }} %>
+                                        </td>
+
+
+                                        <td><a href="offert/details/<%=offert._id%>">details</a></td>
+                                        <td><a href="offert/edit/<%=offert._id%>">edit<a></td>
+                                        <td><a href="offert/delete/<%=offert._id%>">remove<a></td>
+                                    </tr>
+                                    <% } %>
+
+                            </table>
+                            <a href="/../offert/add"><button>Add new Offert</button></a>
+                            <%} %>
+
+            </main>
+        </div>
+        <%- include('./../../fragments/footer.ejs') %>

@@ -2,10 +2,13 @@
 
 function validateForm() {
 
+    console.log("dupa");
+
+
     const usernameInput = document.getElementById("username");
     const passwordInput = document.getElementById("password");
     const emailInput = document.getElementById("email");
-    const avatarInput = document.getElementById("avatar");
+    //  const avatarInput = document.getElementById("avatar");
 
 
 
@@ -13,16 +16,17 @@ function validateForm() {
     const errorUsername = document.getElementById("errorUsername");
     const errorPassword = document.getElementById("errorPassword");
     const errorEmail = document.getElementById("errorEmail");
-    const errorAvatar = document.getElementById("errorAvatar");
+    const errorsSummary = document.getElementById("errorsSummary");
+    // const errorAvatar = document.getElementById("errorAvatar");
 
-    // resetErrors([username, password, email, avatar],
-    //     [errorUsername, errorPassword]);
+    resetErrors([username, password, email],
+        [errorUsername, errorPassword, errorEmail], errorsSummary);
 
     let valid = true;
 
     if (!checkRequired(usernameInput.value)) {
         valid = false;
-
+        console.log("dupa");
         usernameInput.classList.add("error-input");
         errorUsername.innerText = "Pole jest wymagane";
     } else if (!checkTextLenghtRanga(usernameInput.value, 2, 30)) {
@@ -60,6 +64,7 @@ function validateForm() {
         emailInput.classList.add("error-input");
         errorEmail.innerText = "Pole powinno zawierać prawidłowy adres email";
     }
+
 
     if (!valid) {
         errorsSummary.innerText = "Formularz zawiera błędy";

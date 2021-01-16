@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/userRoute');
 var artworkRouter = require('./routes/artworkRoute');
+var offertRouter = require('./routes/offertRoute');
 
 const sequelizeInit = require('./config/sequelize/init');
 
@@ -25,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/artwork', artworkRouter);
+app.use('/offert', offertRouter);
+
 
 //db
 sequelizeInit()

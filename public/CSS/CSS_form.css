@@ -12,3 +12,16 @@ input:required {
 .form select.error-input{
     border: 3px solid #e74c3c;
 }
+.form input[type=submit]{
+    background-color: gray;
+    padding: 6px;
+    width: 110px;;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: none;
+}
+.form input[type=submit]:hover{
+    background-color:rgb(235, 158, 59);
+    color: black;
+}
+

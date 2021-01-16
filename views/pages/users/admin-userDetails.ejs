@@ -11,76 +11,96 @@
                     </tr>
                     <tr>
                         <td>USERNAME</td>
-                        <td>trueartist</td>
+                        <td>
+                            <%=user.username %>
+                        </td>
                     </tr>
                     <tr>
                         <td>PASSWORD</td>
-                        <td>ads#@5#fj</td>
+                        <td>
+                            <%=user.password %>
+                        </td>
                     </tr>
                     <tr>
                         <td>E-MAIL</td>
-                        <td>ta@gmail.com</td>
+                        <td>
+                            <%=user.email %>
+                        </td>
                     </tr>
 
                 </table>
-                <a href="user/edit/"><button style="margin-left: 10px">Edit</button></a>
+                <a href="/user/edit/<%=user._id%>"><button style="margin-left: 10px">Edit</button></a>
                 <br>
                 <table class="data" cellpadding="5">
                     <tr>
-                        <td colspan="4">
+                        <td colspan="7">
                             <h4> Artworks</h4>
                         </td>
                     </tr>
                     <tr>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Tags</th>
                         <th>Thumbnail</th>
+                        <th colspan="3">Actions</th>
                     </tr>
-                    <tr>
-                        <td>Mona Lisa</td>
-                        <td>The painting's novel qualities include the subject's enigmatic expression, the
-                            monumentality of the composition, the subtle modelling of forms,
-                            and the atmospheric illusionism.</td>
-                        <td>portrait, renaissance</td>
-                        <td align="center"><img
-                                src="Images/300px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg"
-                                width="50px"></td>
-                    </tr>
-                    <tr>
-                        <td>Mononoke Hime</td>
-                        <td>Miyazaki Hayao film promotion material</td>
-                        <td>anime art</td>
-                        <td align="center"><img src="Images/san and kodama.jpg" width="50px"></td>
-                    </tr>
+                    <% for (let artwork of artworks) { %>
+                        <tr>
+
+                            <td>
+                                <%=artwork.title %>
+                            </td>
+                            <td>
+                                <%=artwork.description %>
+                            </td>
+                            <td>
+                                <%=artwork.file %>
+                            </td>
+                            <td><a href="/artwork/details/<%=artwork._id%>">details</a></td>
+                            <td><a href="/artwork/edit/<%=artwork._id%>">edit<a></td>
+                            <td><a href="/artwork/delete/<%=artwork._id%>">remove<a></td>
+                        </tr>
+                        <% } %>
 
                 </table>
-                <a href="artwork/add"><button style="margin-left: 10px">Add new Artwork</button></a>
+                <a href="/../artwork/add"><button style="margin-left: 10px">Add new Artwork</button></a>
 
                 <table>
                     <tr>
-                        <td colspan="5">
+                        <td colspan="8">
                             <h4> Offerts </h4>
                         </td>
                     </tr>
                     <tr>
                         <th>Title</th>
                         <th>Price</th>
-                        <th>Created date</th>
                         <th>Customer</th>
                         <th>Purchase date</th>
+                        <th colspan="3">Actions</th>
+
                     </tr>
-                    <tr>
-                        <a>
-                            <td>Mona Lisa like portrait</td>
-                        </a>
-                        <td>10$</td>
-                        <td>21.11.2020</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
+                    <% for (let offert of offerts) { %>
+                        <tr>
+
+                            <td>
+                                <%=offert.title %>
+                            </td>
+                            <td>
+                                <%=offert.price %> $
+                            </td>
+                            <td>
+                                <%=offert.customer_id %>
+                            </td>
+                            <td>
+                                <%=offert.purcharseDate %>
+                            </td>
+                            <td><a href="/offert/details/<%=offert._id%>">details</a></td>
+                            <td><a href="/offert/edit/<%=offert._id%>">edit<a></td>
+                            <td><a href="/offert/delete/<%=offert._id%>">remove<a></td>
+                        </tr>
+                        <% } %>
+
                 </table>
-                <a href="offert/add"><button style="margin-left: 10px">Add new Offert</button></a>
+                <a href="/../offert/add"><button style="margin-left: 10px">Add new Offert</button></a>
                 <br>
                 <br>
             </main>

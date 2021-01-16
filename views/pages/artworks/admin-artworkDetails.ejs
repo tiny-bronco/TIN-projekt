@@ -1,35 +1,5 @@
-<!DOCTYPE html>
-<html lang="pl-PL">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARTHeaven - Submit Art</title>
-    <link rel="stylesheet" href="..\CSS\CSS_01.css">
-    <link rel="stylesheet" href="..\CSS\CSS_grid.css">
-</head>
-
-<body>
-    <div class="grid-container">
-        <div class="header">
-            <header>
-                <a href="..\mainPage.html">
-                    <h1 id="startHeader">ART Heaven</h1>
-                </a>
-                <img src="..\Images\yoshitaka1_h3.jpg" alt="logo">
-            </header>
-        </div>
-
-        <div class="nav">
-            <nav>
-                <h2 class="nav-header">Admin panel</h2>
-                <ul class="vertical">
-                    <li><a href="adminPanel.html"> Users </a></li>
-                    <li class="active"><a class="active" href="adminPanel-artworks.html">Artworks</a></li>
-                    <li><a href="adminPanel-offerts.html"> Offerts </a></li>
-                </ul>
-            </nav>
-        </div>
+<%- include('./../../fragments/header2.ejs') %>
+    <%- include('./../../fragments/nav-ver.ejs') %>
         <div class="main">
             <main>
                 <table class="data" width="auto">
@@ -66,8 +36,8 @@
                                 width="200px"></td>
                     </tr>
                 </table>
-                <a href="admin-editArtwork.html"><button>Edit</button></a>
-                <a href="adminPanel-artworks.html"><button>Cancel</button></a>
+                <a href="./edit"><button>Edit</button></a>
+                <a href="/artwork"><button>Cancel</button></a>
 
                 <main>
                     <table class="data" cellpadding="5">
@@ -111,13 +81,4 @@
                     </table>
                 </main>
         </div>
-        <div class="footer">
-            <footer>
-                <p class="footer"> Martyna, Lipińska, s13186 </p>
-            </footer>
-        </div>
-    </div>
-
-</body>
-
-</html>
+        <%- include('./../../fragments/footer.ejs') %>

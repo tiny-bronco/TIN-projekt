@@ -3,6 +3,9 @@ const sequelize = require('./sequelize');
 const User = require('../../model/sequelize/User');
 const Artwork = require('../../model/sequelize/Artwork');
 const Offert = require('../../model/sequelize/Offert');
+const Tag = require('../../model/sequelize/Tag');
+const TagRepository = require('../../repository/sequelize/TagRepository');
+
 
 module.exports = () => {
     User.hasMany(Artwork, { as: 'artworks', foreignKey: { name: 'user_id', allowNull: false }, constrains: true, onDelete: 'CASCADE' });
@@ -14,6 +17,13 @@ module.exports = () => {
 
     Artwork.hasMany(Offert, { as: 'offerts', foreignKey: { name: 'artwork_id', allowNull: false }, constrains: true, onDelete: 'CASCADE' });
     Offert.belongsTo(Artwork, { as: 'artwork', foreignKey: { name: 'artwork_id', allowNull: false } });
+
+    Artwork.belongsToMany(Tag, { as: 'tags', through: "ArtworkTags", foreignKey: { name: 'artwork_id', allowNull: true } });
+    // wiele-do-wile ArtworkTags
+    // jeden do wiele?
+    //
+    Tag.belongsToMany(Artwork, { as: 'artworks', through: "ArtworkTags", foreignKey: { name: 'tag_id', allowNull: false } });
+
 
     let allUsers, allArtworks;
 
@@ -45,17 +55,16 @@ module.exports = () => {
                 return Artwork.bulkCreate([
                     {
                         title: 'Mona Lisa', description: 'The painting\'s novel qualities include the subject\'s enigmatic expression, the monumentality of the composition, the subtle modelling of forms, and the atmospheric illusionism.',
-                        tags: 'portrait, renaissance', user_id: allUsers[0]._id, uploadDate: '2019-11-20',
+                        user_id: allUsers[0]._id,
                         file: '..\Images/ 300px - Mona_Lisa, _by_Leonardo_da_Vinci, _from_C2RMF_retouched.jpg'
                     },
                     {
-                        title: 'Mononoke Hime', description: 'Miyazaki Hayao film promotion material',
-                        tags: 'anime art', user_id: allUsers[1]._id, uploadDate: '2020-07-10',
+                        title: 'Mononoke Hime', description: 'Miyazaki Hayao film promotion material', user_id: allUsers[1]._id,
                         file: 'Images/san and kodama.jpg'
                     }
                 ])
                     .then(() => {
-                        return User.findAll();
+                        return Artwork.findAll();
                     });
             } else {
                 return arts;
@@ -70,17 +79,49 @@ module.exports = () => {
                 return Offert.bulkCreate([
                     {
                         title: 'Mona Lisa like portrait', description: 'I offer for traditional portrait.<br>100x80 size',
-                        price: '10$', owner_id: allArtworks[0].user_id, createdDate: '2019-11-20',
+                        price: '10', owner_id: allArtworks[0].user_id,
                         customer_id: null, purcharseDate: null, artwork_id: allArtworks[0]._id
                     },
                     {
                         title: 'Concept art', description: 'Concept art piece in Ghibli style',
-                        price: '25$', owner_id: allArtworks[1].user_id, createdDate: '2020-07-11',
-                        customer_id: allUsers[0]._id, purcharseDate: '2020-09-11', artwork_id: allArtworks[0]._id
+                        price: '25', owner_id: allArtworks[1].user_id,
+                        customer_id: allUsers[0]._id, purcharseDate: '2020-09-11', artwork_id: allArtworks[1]._id
                     }
-                ]);
+                ])
+                    .then(() => {
+                        return Offert.findAll();
+                    });
+
             } else {
                 return offerts;
             }
+        })
+        .then(() => {
+            return Tag.findAll();
+        })
+        .then(tags => {
+            if (!tags || tags.length == 0) {
+                return Tag.bulkCreate([
+                    {
+                        name: 'portrait'
+                    },
+                    {
+                        name: 'concept art'
+                    }
+                ])
+                    .then(() => {
+                        return Tag.findAll();
+                    });
+            } else {
+                return tags;
+
+            }
+        })
+        .then(() => {
+            TagRepository.addArtwork(1, 1);
+            TagRepository.addArtwork(1, 2);
+
         });
 };
+
+
